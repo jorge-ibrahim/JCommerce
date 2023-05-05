@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,17 +52,6 @@
             this.panel1.Size = new System.Drawing.Size(177, 311);
             this.panel1.TabIndex = 0;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(0, 210);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(173, 32);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "JCommerce";
-            // 
             // iconPictureBox1
             // 
             this.iconPictureBox1.BackColor = System.Drawing.Color.RoyalBlue;
@@ -75,6 +64,17 @@
             this.iconPictureBox1.Size = new System.Drawing.Size(150, 136);
             this.iconPictureBox1.TabIndex = 1;
             this.iconPictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(0, 210);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(173, 32);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "JCommerce";
             // 
             // txtUsuario
             // 
@@ -114,27 +114,37 @@
             // 
             // btnIngresar
             // 
-            this.btnIngresar.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnIngresar.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.btnIngresar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnIngresar.IconChar = FontAwesome.Sharp.IconChar.DoorOpen;
             this.btnIngresar.IconColor = System.Drawing.Color.Black;
             this.btnIngresar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnIngresar.Location = new System.Drawing.Point(216, 206);
+            this.btnIngresar.IconSize = 25;
+            this.btnIngresar.Location = new System.Drawing.Point(216, 219);
             this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(111, 51);
+            this.btnIngresar.Size = new System.Drawing.Size(95, 39);
             this.btnIngresar.TabIndex = 4;
             this.btnIngresar.Text = "Ingresar";
-            this.btnIngresar.UseVisualStyleBackColor = true;
+            this.btnIngresar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnIngresar.UseVisualStyleBackColor = false;
+            this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
             // btnSalir
             // 
-            this.btnSalir.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnSalir.BackColor = System.Drawing.Color.IndianRed;
+            this.btnSalir.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSalir.IconChar = FontAwesome.Sharp.IconChar.DoorClosed;
             this.btnSalir.IconColor = System.Drawing.Color.Black;
             this.btnSalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSalir.Location = new System.Drawing.Point(437, 206);
+            this.btnSalir.IconSize = 25;
+            this.btnSalir.Location = new System.Drawing.Point(453, 219);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(111, 51);
+            this.btnSalir.Size = new System.Drawing.Size(95, 39);
             this.btnSalir.TabIndex = 5;
             this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // Login
             // 
