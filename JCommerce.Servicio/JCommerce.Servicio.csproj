@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Provincia\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JCommerce.Dominio\JCommerce.Dominio.csproj" />
+    <ProjectReference Include="..\JCommerce.Infraestructura\JCommerce.Infraestructura.csproj" />
+  </ItemGroup>
+
 </Project>
