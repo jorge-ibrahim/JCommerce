@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
             this.pnlTitulo = new System.Windows.Forms.Panel();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.btnVentas = new FontAwesome.Sharp.IconMenuItem();
+            this.btnConsultaVentas = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnNuevaVenta = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCompras = new FontAwesome.Sharp.IconMenuItem();
             this.btnCaja = new FontAwesome.Sharp.IconMenuItem();
             this.btnProveedores = new FontAwesome.Sharp.IconMenuItem();
@@ -41,9 +43,7 @@
             this.btnReportes = new FontAwesome.Sharp.IconMenuItem();
             this.btnConfiguracion = new FontAwesome.Sharp.IconMenuItem();
             this.btnParametricas = new FontAwesome.Sharp.IconMenuItem();
-            this.lblTitulo = new System.Windows.Forms.Label();
-            this.btnConsultaVentas = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnNuevaVenta = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.pnlTitulo.SuspendLayout();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -56,8 +56,19 @@
             this.pnlTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTitulo.Location = new System.Drawing.Point(0, 0);
             this.pnlTitulo.Name = "pnlTitulo";
-            this.pnlTitulo.Size = new System.Drawing.Size(897, 59);
+            this.pnlTitulo.Size = new System.Drawing.Size(931, 59);
             this.pnlTitulo.TabIndex = 0;
+            // 
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTitulo.ForeColor = System.Drawing.Color.White;
+            this.lblTitulo.Location = new System.Drawing.Point(12, 9);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(205, 37);
+            this.lblTitulo.TabIndex = 0;
+            this.lblTitulo.Text = "JCommerce";
             // 
             // panel1
             // 
@@ -67,18 +78,8 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 59);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(260, 402);
+            this.panel1.Size = new System.Drawing.Size(260, 438);
             this.panel1.TabIndex = 1;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(260, 59);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(637, 402);
-            this.panel2.TabIndex = 2;
             // 
             // menuStrip1
             // 
@@ -97,7 +98,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip1.Size = new System.Drawing.Size(244, 398);
+            this.menuStrip1.Size = new System.Drawing.Size(244, 434);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -117,6 +118,19 @@
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Size = new System.Drawing.Size(200, 35);
             this.btnVentas.Text = "Ventas";
+            this.btnVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnConsultaVentas
+            // 
+            this.btnConsultaVentas.Name = "btnConsultaVentas";
+            this.btnConsultaVentas.Size = new System.Drawing.Size(178, 22);
+            this.btnConsultaVentas.Text = "Ver Ventas";
+            // 
+            // btnNuevaVenta
+            // 
+            this.btnNuevaVenta.Name = "btnNuevaVenta";
+            this.btnNuevaVenta.Size = new System.Drawing.Size(178, 22);
+            this.btnNuevaVenta.Text = "Nueva Venta";
             // 
             // btnCompras
             // 
@@ -130,6 +144,7 @@
             this.btnCompras.Name = "btnCompras";
             this.btnCompras.Size = new System.Drawing.Size(200, 35);
             this.btnCompras.Text = "Compras";
+            this.btnCompras.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnCaja
             // 
@@ -141,8 +156,9 @@
             this.btnCaja.IconSize = 30;
             this.btnCaja.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnCaja.Name = "btnCaja";
-            this.btnCaja.Size = new System.Drawing.Size(200, 22);
-            this.btnCaja.Text = "  ";
+            this.btnCaja.Size = new System.Drawing.Size(200, 35);
+            this.btnCaja.Text = "  Caja";
+            this.btnCaja.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnProveedores
             // 
@@ -156,6 +172,7 @@
             this.btnProveedores.Name = "btnProveedores";
             this.btnProveedores.Size = new System.Drawing.Size(200, 35);
             this.btnProveedores.Text = "Proveedores";
+            this.btnProveedores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnClientes
             // 
@@ -169,6 +186,7 @@
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Size = new System.Drawing.Size(200, 35);
             this.btnClientes.Text = "Clientes";
+            this.btnClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnUsuarios
             // 
@@ -182,6 +200,7 @@
             this.btnUsuarios.Name = "btnUsuarios";
             this.btnUsuarios.Size = new System.Drawing.Size(200, 35);
             this.btnUsuarios.Text = "Usuarios";
+            this.btnUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnReportes
             // 
@@ -195,6 +214,7 @@
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Size = new System.Drawing.Size(200, 35);
             this.btnReportes.Text = "Reportes";
+            this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnConfiguracion
             // 
@@ -208,6 +228,7 @@
             this.btnConfiguracion.Name = "btnConfiguracion";
             this.btnConfiguracion.Size = new System.Drawing.Size(200, 35);
             this.btnConfiguracion.Text = "Configuracion";
+            this.btnConfiguracion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnParametricas
             // 
@@ -221,35 +242,23 @@
             this.btnParametricas.Name = "btnParametricas";
             this.btnParametricas.Size = new System.Drawing.Size(200, 35);
             this.btnParametricas.Text = "Parametricas";
+            this.btnParametricas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblTitulo
+            // panel2
             // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(12, 9);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(205, 37);
-            this.lblTitulo.TabIndex = 0;
-            this.lblTitulo.Text = "JCommerce";
-            // 
-            // btnConsultaVentas
-            // 
-            this.btnConsultaVentas.Name = "btnConsultaVentas";
-            this.btnConsultaVentas.Size = new System.Drawing.Size(180, 22);
-            this.btnConsultaVentas.Text = "Ver Ventas";
-            // 
-            // btnNuevaVenta
-            // 
-            this.btnNuevaVenta.Name = "btnNuevaVenta";
-            this.btnNuevaVenta.Size = new System.Drawing.Size(180, 22);
-            this.btnNuevaVenta.Text = "Nueva Venta";
+            this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(260, 59);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(671, 438);
+            this.panel2.TabIndex = 2;
             // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(897, 461);
+            this.ClientSize = new System.Drawing.Size(931, 497);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlTitulo);

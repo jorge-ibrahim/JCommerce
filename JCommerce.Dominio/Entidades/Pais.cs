@@ -1,13 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using JCommerce.Dominio.MetaData;
+using System.ComponentModel.DataAnnotations;
 
 namespace JCommerce.Dominio.Entidades
 {
+    [MetadataType(typeof(IPaisMTD))]
     public class Pais:EntidadBase
     {
-        public string? Nombre { get; set; }
+        public string Descripcion { get; set; }
+
+        //Navegacion
+        public virtual ICollection<Provincia> NProvincias { get; set; }
     }
 }

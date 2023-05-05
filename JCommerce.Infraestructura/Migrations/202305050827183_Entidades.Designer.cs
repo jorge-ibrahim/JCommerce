@@ -7,13 +7,13 @@ namespace JCommerce.Infraestructura.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class inicial : IMigrationMetadata
+    public sealed partial class Entidades : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(inicial));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Entidades));
         
         string IMigrationMetadata.Id
         {
-            get { return "202304290825326_inicial"; }
+            get { return "202305050827183_Entidades"; }
         }
         
         string IMigrationMetadata.Source
