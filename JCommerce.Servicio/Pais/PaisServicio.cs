@@ -1,76 +1,97 @@
 ﻿using JCommerce.Infraestructura;
+using JCommerce.Infraestructura.Migrations;
+using JCommerce.Infraestructura.Repositorios;
 using JCommerce.Servicio.Dtos;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using System.Linq.Expressions;
 
 namespace JCommerce.Servicio.Pais
 {
     public class PaisServicio : IPaisServicio
     {
-        public async Task<int> Agregar(PaisDto entidad)
+       
+        
+        public int Agregar(PaisDto entidad)
         {
-            using(var context = new DataContext())
+            using (var context = new DataContext())
             {
-                var entidadNueva = new JCommerce.Dominio.Entidades.Pais{
-                    Nombre = entidad.Nombre,
+                var entidadNueva = new JCommerce.Dominio.Entidades.Pais
+                {
+                    Descripcion = entidad.Nombre,
                     EstaEliminado = false
                 };
 
                 context.Pais.Add(entidadNueva);
-                await context.SaveChangesAsync();
+                context.SaveChanges();
                 return entidadNueva.Id;
             }
         }
 
-        public async Task<IEnumerable<PaisDto>> Buscar(string CadenaBuscar)
+        public void Eliminar(PaisDto entidad)
         {
             using(var context = new DataContext())
             {
-                return await context.Pais.AsNoTracking().Where(x => x.EstaEliminado ==
-                false && x.Nombre == CadenaBuscar).Select(x => new PaisDto
-                {
-                    Id = x.Id,
-                    Nombre = x.Nombre,
-                    EstaEliminado = x.EstaEliminado,
-                    RowVersion = x.RowVersion
-                }).ToListAsync();
-            }
-        }
+                var entidadEliminar = context.Pais.FirstOrDefault(x => x.Id == entidad.Id);
 
-        public Task<PaisDto> BuscarPorId(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task Eliminar(int id)
-        {
-            using(var context = new DataContext())
-            {
-                var entidadEliminar = await context.Pais.FirstOrDefaultAsync(x => x.Id == id);
-
-                if (entidadEliminar == null)
-                    throw new Exception("Ocurrio un Error al obtener los datos.");
-                //borrado logico
                 entidadEliminar.EstaEliminado = true;
 
-                //borrado fisico
-               // context.Pais.Remove(entidadEliminar);
-
-                await context.SaveChangesAsync();
+                context.SaveChanges();
             }
         }
 
-        public async Task Modificar(PaisDto entidad)
+        public void Modificar(PaisDto entidad)
         {
-            using(var context = new DataContext())
+            using (var context = new DataContext())
             {
-                var entidadModificar = await context.Pais.FirstOrDefaultAsync(x => x.Id == entidad.Id);
+                var entidadModificar = context.Pais.FirstOrDefault(x => x.Id == entidad.Id);
 
                 if (entidadModificar == null)
                     throw new Exception("Ocurrio un Error al obtener los datos.");
 
-                entidadModificar.Nombre = entidad.Nombre;
-                await context.SaveChangesAsync();
+                entidadModificar.Descripcion = entidad.Nombre;
+                context.SaveChanges();
             }
+        }
+
+        public IEnumerable<PaisDto> ObtenerPor(string cadenaBuscar)
+        {
+            using (var context = new DataContext())
+            {
+                return context.Pais.AsNoTracking().Where(x => !x.EstaEliminado 
+                && (x.Descripcion.Contains(cadenaBuscar)
+                )).Select(x => new PaisDto
+                {
+                    Id = x.Id,
+                    Nombre = x.Descripcion,
+                    EstaEliminado = x.EstaEliminado,
+                    RowVersion = x.RowVersion
+                }).ToList();
+            }
+        }
+
+        public PaisDto ObtenerPorID(int entidadId)
+        {
+            using(var context = new DataContext())
+            {
+                var entidadEliminar = context.Pais.AsNoTracking().Include(x => x.NProvincias)
+                    .Where(x => !x.EstaEliminado)
+                    .Select(x=> new PaisDto
+                    {
+                        Id = x.Id,
+                        Nombre = x.Descripcion,
+                        EstaEliminado = x.EstaEliminado,
+                        RowVersion = x.RowVersion,
+                        
+                    }).FirstOrDefault(x => x.Id == entidadId);
+
+                return entidadEliminar;
+            }
+        }
+
+        public IEnumerable<PaisDto> ObtenerTodos()
+        {
+            throw new NotImplementedException();
         }
     }
 }
